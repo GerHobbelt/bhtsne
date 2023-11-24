@@ -6,8 +6,13 @@
 #include <ctime>
 #include "tsne.h"
 
+
+#if defined(BUILD_MONOLITHIC)
+#define main    BarnesHut_tSNE_demo_main
+#endif
+
 // Function that runs the Barnes-Hut implementation of t-SNE
-int main() {
+int main(void) {
 
     // Define some variables
 	int origN, N, D, no_dims, max_iter;
@@ -38,4 +43,5 @@ int main() {
 		free(costs); costs = NULL;
 		free(landmarks); landmarks = NULL;
     }
+	return 0;
 }
